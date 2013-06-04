@@ -2,32 +2,35 @@
 
 Cell::Cell()
 {
-public:
-    //getters
-    int getX() const
-    {
-        return x;
-    }
-    int getY() const
-    {
-        return y;
-    }
-    int getValue()
-    {
-        return value;
-    }
 
-    //setters
-    void setX(int x) const
-    {
-        this-> x = x;
-    }
-    void setY(int y)
-    {
-        this-> y = y;
-    }
-    void setValue(int value)
-    {
-        this->value = value;
-    }
+}
+
+int Cell::getX() const
+{
+    return x;
+}
+
+int Cell::getY() const
+{
+    return y;
+}
+
+int Cell::getValue() const
+{
+    return value;
+}
+
+void Cell::setX(x) const
+{
+    this-> x = x;
+}
+
+void Cell::setY(y) const
+{
+    this-> y = y;
+}
+
+void Cell::setValue(value) const
+{
+    this-> value = value;
 }
