@@ -14,9 +14,11 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         sudokugui.cpp \
-    ../Cell.cpp
+    ../Cell.cpp \
+    ../sudoku.cpp
 
 HEADERS  += sudokugui.h \
-    ../Cell.h
+    ../Cell.h \
+    ../sudoku.h
 
 FORMS    += sudokugui.ui
