@@ -1,5 +1,5 @@
 #include "sudoku.h"
-#include <iostream>
+#include <fstream.h>
 
 Sudoku::Sudoku()
 {
@@ -10,6 +10,7 @@ Sudoku::Sudoku()
 //Carga un sudoku resuelto correctamente desde un archivo de texto para revisarlo con el método checkAll
 void Sudoku:: loadSudoku()
 {
+    std::ifstream infile("sudoku.txt");
 
 
 }
