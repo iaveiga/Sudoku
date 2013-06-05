@@ -11,17 +11,6 @@ private:
 
 public:
     Cell();
-    /*
-    //getters
-    int getX() const {return x;}
-    int getY() const {return y;}
-    int getValue() const {return value;}
-
-    //setters
-    void setX(int x){this->x = x;}
-    void setY(int y) {this-> y = y;}
-    void setValue(int value) {this->value = value;}
-    */
 
     //getters
     int getX();

@@ -11,41 +11,17 @@ private:
 public:
     Cell();
 
-    bool checkRow(Cell c)
-    {
-        //Retorna verdadero si el valor de c existe más de una vez en la fila
+    //Retorna verdadero si el valor de c existe más de una vez en la fila
+    bool checkRow(Cell c);
 
-        int i = c->getX();
-        int cont = 0;
-        for(int j = 0; j < 9; j++)
-        {
-            if(matriz[i][j]->getValue() == c->getValue())
-                cont++;
-
-        }
-        return cont==1;
-    }
-
-    bool checkCol(Cell c)
-    {
-        //Retorna verdadero si el valor de c existe más de una vez en la columna
-        int j = c->getY();
-        for(int i = 0; i<9; i++)
-        {
-            if(matriz[i][j]->getValue() == c->getValue())
-                cont++;
-        }
-        return cont == 1;
-
-    }
+    //Retorna verdadero si el valor de c existe más de una vez en la columna
+    bool checkCol(Cell c);
 
     //Parcialmente implementado
-    Cell checkAll[]()
-    {
-        Cell error[81];
+    Cell checkAll[]();
 
-        return error;
-    }
+    //Carga un sudoku resuelto correctamente desde un archivo de texto para revisarlo con el método checkAll
+    void loadSudoku();
 
 };
 
