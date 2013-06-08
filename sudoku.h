@@ -23,6 +23,7 @@ public:
     //Carga un sudoku resuelto correctamente desde un archivo de texto para revisarlo con el método checkAll
     void loadSudoku();
 
+
 };
 
 #endif // SUDOKU_H
