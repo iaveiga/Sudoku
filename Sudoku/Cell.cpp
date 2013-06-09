@@ -34,3 +34,12 @@ void Cell::setValue(value) const
 {
     this-> value = value;
 }
+
+list<int> Cell::setPosibleValue(value) conts
+{
+
+}
+void Cell::setPosibleValue(value) conts
+{
+
+}
