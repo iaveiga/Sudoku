@@ -12,7 +12,7 @@ public:
     Cell();
 
     //Retorna verdadero si el valor de c existe más de una vez en la fila
-    bool checkRow(Cell c);
+    list<Cell> checkRow(Cell c);
 
     //Retorna verdadero si el valor de c existe más de una vez en la columna
     bool checkCol(Cell c);

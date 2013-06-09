@@ -1,5 +1,6 @@
 #include "sudoku.h"
 #include <fstream.h>
+#include <list>
 
 using namespace std;
 
@@ -33,40 +34,41 @@ void Sudoku:: loadSudoku()
     }
 }
 
-//Retorna verdadero si el valor de c existe más de una vez en la fila
-bool Sudoku::checkRow(Cell c)
+//Retorna una lista de celdas erroneas, si el valor de c existe más de una vez en la fila
+list<Cell> Sudoku::checkRow(Cell c)
 {
-
-
+    list<Cell> listaErroneaRow;
     int i = c->getX();
-    int cont = 0;
     for(int j = 0; j < 9; j++)
     {
         if(matriz[i][j]->getValue() == c->getValue())
-            cont++;
-
-    }
-    return cont==1;
+            listaErroneaRow.push_back(c);
+     }
+    return listaErronea;
 }
 
-//Retorna verdadero si el valor de c existe más de una vez en la columna
-bool Sudoku::checkCol(Cell c)
+//Retorna una lista de celdas erroneas, si el valor de c existe más de una vez en la columna
+list<Cell> Sudoku::checkCol(Cell c)
 {
-
+    list<Cell> listaErroneaCol;
     int j = c->getY();
     for(int i = 0; i<9; i++)
     {
         if(matriz[i][j]->getValue() == c->getValue())
-            cont++;
+            listaErroneaCol.push_back(c);
     }
-    return cont == 1;
+    return listaErroneaCol;
 
 }
 
 //Parcialmente implementado
-Cell Sudoku::checkAll[]()
+Cell Sudoku::checkAll[](list<Cell> R, list<Cell> C)
 {
-    Cell error[81];
+    list<Cell>::iterator itr = R.begin();
+    list<Cell>::iterator itc = C.begin();
 
-    return error;
+    while(R.isempty() || C.isempty()){
+        Cell error[81];
+        return error;
+    }
 }
