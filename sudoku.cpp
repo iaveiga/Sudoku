@@ -37,28 +37,43 @@ void Sudoku:: loadSudoku()
 //Retorna una lista de celdas erroneas, si el valor de c existe más de una vez en la fila
 list<Cell> checkRow(Cell c)
 {
-    list<Cell> listaErroneaRow;
+    list<Cell> listImaginarioRow;
+    list<Cell> lista;
     int i = c->getX();
+
+    lista.add(matriz[i][0]);
+
     for(int j = 0; j < 9; j++)
     {
-        if(matriz[i][j]->getValue() == c->getValue())
-            listaErroneaRow.push_back(c);
+        for(int n=0; n< lista.size();n++){
+            if(matriz[i][j]->getValue() == lista[n][0])
+                listImaginarioRow.add(matriz[i][j]);
+            else
+                lista.add(matriz[i][j]);
+        }
      }
-    return listaErronea;
+    return listImaginarioRow;
 }
 
 //Retorna una lista de celdas erroneas, si el valor de c existe más de una vez en la columna
 list<Cell> checkCol(Cell c)
 {
-    list<Cell> listaErroneaCol;
+    list<Cell> listaImaginariosCol;
+    list<Cell> lista;
     int j = c->getY();
+
+    lista.add(matriz[0][j]);
+
     for(int i = 0; i<9; i++)
     {
-        if(matriz[i][j]->getValue() == c->getValue())
-            listaErroneaCol.push_back(c);
+        for(int n1=0; n1<lista.size();n1++){
+            if(matriz[i][j]->getValue() == lista[0][n])
+                listaImaginariosCol.add(matriz[i][j]);
+            else
+                lista.add(matriz[i][j]);
+        }
     }
-    return listaErroneaCol;
-
+    return listaImaginariosCol;
 }
 
 //Parcialmente implementado
