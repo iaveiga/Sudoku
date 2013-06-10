@@ -7,15 +7,14 @@ class Sudoku
 private:
     Sudoku();
     Cell matriz[9][9];
-
+    Cell centros[9]  ;
 public:
     Cell();
 
     //Retorna verdadero si el valor de c existe más de una vez en la fila
-    list<Cell> checkRow(Cell c);
+    list<Cell> checkCol(Cell c);
 
-    //Retorna verdadero si el valor de c existe más de una vez en la columna
-    bool checkCol(Cell c);
+    list<Cell> checkRow(Cell c);
 
     //Parcialmente implementado
     Cell checkAll[]();
@@ -23,7 +22,9 @@ public:
     //Carga un sudoku resuelto correctamente desde un archivo de texto para revisarlo con el método checkAll
     void loadSudoku();
 
+    Cell getCenter(Cell c);
 
+    void initializeCenters();
 };
 
 #endif // SUDOKU_H
