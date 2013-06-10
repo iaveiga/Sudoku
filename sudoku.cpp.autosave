@@ -1,0 +1,100 @@
+#include "sudoku.h"
+#include <fstream.h>
+#include <list>
+
+using namespace std;
+
+//Constructor
+Sudoku::Sudoku()
+{
+    for(int i = 0; i <9 ; i++)
+    {
+        for(int j = 0; j <9 ; j++)
+        {
+            matriz[i][j]->setValue = -1 ;
+            matriz[i][j]->setX = i;
+            matriz[i][j]->setY = j;
+        }
+    }
+}
+
+//Carga un sudoku resuelto correctamente desde un archivo de texto para revisarlo con el método checkAll
+void Sudoku:: loadSudoku()
+{
+    ifstream archivo;
+    archivo.open("/sudoku.txt",ios::in);
+    int i,j;
+    for(i = 0; i< 9; i++)
+    {
+        for(j=0; j<9 ; j++)
+        {
+            archivo>> matriz[i][j] ->setValue ;
+        }
+
+    }
+}
+
+//Retorna una lista de celdas erroneas, si el valor de c existe más de una vez en la fila
+list<Cell> checkRow(Cell c)
+{
+    list<Cell> listaErroneaRow;
+    int i = c->getX();
+    for(int j = 0; j < 9; j++)
+    {
+        if(matriz[i][j]->getValue() == c->getValue())
+            listaErroneaRow.push_back(c);
+     }
+    return listaErronea;
+}
+
+//Retorna una lista de celdas erroneas, si el valor de c existe más de una vez en la columna
+list<Cell> checkCol(Cell c)
+{
+    list<Cell> listaErroneaCol;
+    int j = c->getY();
+    for(int i = 0; i<9; i++)
+    {
+        if(matriz[i][j]->getValue() == c->getValue())
+            listaErroneaCol.push_back(c);
+    }
+    return listaErroneaCol;
+
+}
+
+//Parcialmente implementado
+Cell checkAll[]()
+{
+    /*
+    list<Cell>::iterator itr = R.begin();
+    list<Cell>::iterator itc = C.begin();
+
+    while(R.isempty() || C.isempty()){
+        Cell error[81];
+        return error;
+    }
+    */
+    //Revisa cada valor de la celda si está repetido en la fila o columna correspondiente
+    int i,j;
+    list<Cell> error;
+    for(i=0; i< 9; i++)
+    {
+        for(j=0;j,9;j++)
+        {
+            list<Cell> auxC = checkCol(matriz[i][j]);        
+            if(!auxC.empty())
+                mergeLists(error,auxC);
+            list<Cell> auxF = checkRow(matriz[i][j]);
+            if(!auxF.empty())
+                mergeLists(error,auxF);
+        }
+    }
+}
+
+void mergeLists(list<Cell> a, list<Cell> b)
+{
+    int i;
+    for(i = 0; i < b.size(); i++)
+    {
+        a.push_back(b.pop_back());
+    }
+}
