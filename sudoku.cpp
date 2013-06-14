@@ -35,50 +35,49 @@ void Sudoku:: loadSudoku()
 }
 
 //Retorna una lista de celdas erroneas, si el valor de c existe más de una vez en la fila
-list<Cell> checkRow(Cell c)
+list<Cell> checkRow(list<Cell> fila)
 {
-    list<Cell> listImaginarioRow;
-    list<Cell> lista;
-    int i = c->getX();
+    list<Cell> imaginario;
+    list<Cell> reales;
 
-    lista.add(matriz[i][0]);
+    reales.add(fila[0]);
 
-    for(int j = 0; j < 9; j++)
+    for(int j = 0; j < fila.size(); j++)
     {
-        for(int n=0; n< lista.size();n++){
-            if(matriz[i][j]->getValue() == lista[n][0])
-                listImaginarioRow.add(matriz[i][j]);
+        for(int r=0; r< reales.size();r++){
+            if(fila[j].getValue() == reales[r].getValue)
+                imaginario.add(columna[i]);
             else
-                lista.add(matriz[i][j]);
+                reales.add(columna[i]);
         }
      }
-    return listImaginarioRow;
+    return imaginario;
 }
 
 //Retorna una lista de celdas erroneas, si el valor de c existe más de una vez en la columna
-list<Cell> checkCol(Cell c)
+list<Cell> checkCol(list<Cell> columna)
 {
-    list<Cell> listaImaginariosCol;
-    list<Cell> lista;
-    int j = c->getY();
+    list<Cell> imaginarios;
+    list<Cell> reales;
 
-    lista.add(matriz[0][j]);
+    reales.add(columna[0]);
 
-    for(int i = 0; i<9; i++)
+    for(int i = 1; i<columna.size(); i++)
     {
-        for(int n1=0; n1<lista.size();n1++){
-            if(matriz[i][j]->getValue() == lista[0][n])
-                listaImaginariosCol.add(matriz[i][j]);
+        for(int r=0; r<reales.size(); r++){
+            if(columna[i].getValue == reales[r].getValue)
+                imaginarios.add(columna[i]);
             else
-                lista.add(matriz[i][j]);
+                reales.add(columna[i]);
         }
     }
-    return listaImaginariosCol;
+    return imaginarios;
 }
 
 //Parcialmente implementado
 Cell checkAll[]()
 {
+
     /*
     list<Cell>::iterator itr = R.begin();
     list<Cell>::iterator itc = C.begin();
