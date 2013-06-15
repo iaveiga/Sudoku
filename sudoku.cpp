@@ -74,9 +74,39 @@ list<Cell> checkCol(list<Cell> columna)
     return imaginarios;
 }
 
-//Parcialmente implementado
-Cell checkAll[]()
+//Implementado
+list<Cell> checkAll[](list<Cell> ImaginariosRow, lis<Cell>ImaginariosColumn)
 {
+    int e=0;
+    list<Cell> celdasE;//LISTA DE CELDAS ERRONEAS
+    do{
+        for(int i=0; i<17; i++){//For que contara las Columnas y las Filas
+            if(i<=8){//de 0 a 8 es el numero de Columnas
+                if(checkCol(ImaginariosColumn).empty()){//Proceso de Chequeo de Columnas
+                    //mensaje que las Columnas estan correctas
+                }
+                else{
+                    celdasE.add(ImaginariosColumn[i]); //Se agregan a celdasE las celdas Erronenas
+                }
+            }
+            else{// de 9 a 17 es el numero de filas
+                if(checkRow(ImaginariosRow).empty()){//Proceso de Chequeo de Filas
+                    //mensaje que las filas estan de manera correcta
+                }
+                else{
+                    celdasE.add(ImaginariosRow[i - 8]); // Se agregan a CelasE las celdas Erroneas
+                }
+            }
+        }
+        if (celdasE.empty()){//Compara si las Celdas erroneas es igual a vacio para decir que las celdas estan bien
+            e=0;
+            return celdasE;
+        }
+        else
+            return celdasE;//En caso que esten mal algunas celdas el proceso devuelve las celdas erroneas
+            e=1;
+
+    }while (e=1); //Fin del metodo
 
     /*
     list<Cell>::iterator itr = R.begin();
