@@ -30,119 +30,90 @@ void Sudoku:: loadSudoku()
         {
             archivo>> matriz[i][j] ->setValue ;
         }
-
     }
 }
 
 //Retorna una lista de celdas erroneas, si el valor de c existe más de una vez en la fila
-list<Cell> checkRow(list<Cell> fila)
+list<Cell> checkR(Cell a)
 {
-    list<Cell> imaginario;
     list<Cell> reales;
-
-    reales.add(fila[0]);
-
-    for(int j = 0; j < fila.size(); j++)
-    {
-        for(int r=0; r< reales.size();r++){
-            if(fila[j].getValue() == reales[r].getValue)
-                imaginario.add(columna[i]);
-            else
-                reales.add(columna[i]);
-        }
-     }
-    return imaginario;
-}
-
-//Retorna una lista de celdas erroneas, si el valor de c existe más de una vez en la columna
-list<Cell> checkCol(list<Cell> columna)
-{
     list<Cell> imaginarios;
-    list<Cell> reales;
-
-    reales.add(columna[0]);
-
-    for(int i = 1; i<columna.size(); i++)
+    i = a->getX();
+    for(int j = 0; j < 9; j++)
     {
-        for(int r=0; r<reales.size(); r++){
-            if(columna[i].getValue == reales[r].getValue)
-                imaginarios.add(columna[i]);
-            else
-                reales.add(columna[i]);
+        if(inList(reales, matriz[i][j]))
+        {
+            imaginarios.push_back(matriz[i][j]);
+        }
+        else
+        {
+            reales.push_back(matriz[i][j]);
         }
     }
     return imaginarios;
 }
 
-//Implementado
-list<Cell> checkAll[](list<Cell> ImaginariosRow, lis<Cell>ImaginariosColumn)
+//Retorna una lista de celdas erroneas, si el valor de c existe más de una vez en la columna
+list<Cell> checkC(Cell a)
 {
-    int e=0;
-    list<Cell> celdasE;//LISTA DE CELDAS ERRONEAS
-    do{
-        for(int i=0; i<17; i++){//For que contara las Columnas y las Filas
-            if(i<=8){//de 0 a 8 es el numero de Columnas
-                if(checkCol(ImaginariosColumn).empty()){//Proceso de Chequeo de Columnas
-                    //mensaje que las Columnas estan correctas
-                }
-                else{
-                    celdasE.add(ImaginariosColumn[i]); //Se agregan a celdasE las celdas Erronenas
-                }
-            }
-            else{// de 9 a 17 es el numero de filas
-                if(checkRow(ImaginariosRow).empty()){//Proceso de Chequeo de Filas
-                    //mensaje que las filas estan de manera correcta
-                }
-                else{
-                    celdasE.add(ImaginariosRow[i - 8]); // Se agregan a CelasE las celdas Erroneas
-                }
-            }
-        }
-        if (celdasE.empty()){//Compara si las Celdas erroneas es igual a vacio para decir que las celdas estan bien
-            e=0;
-            return celdasE;
+    list<Cell> reales;
+    list<Cell> imaginarios;
+    j = a->getY();
+    for(int i = 0; i < 9; i++)
+    {
+        if(inList(reales, matriz[i][j]))
+        {
+            imaginarios.push_back(matriz[i][j]);
         }
         else
-            return celdasE;//En caso que esten mal algunas celdas el proceso devuelve las celdas erroneas
-            e=1;
-
-    }while (e=1); //Fin del metodo
-
-    /*
-    list<Cell>::iterator itr = R.begin();
-    list<Cell>::iterator itc = C.begin();
-
-    while(R.isempty() || C.isempty()){
-        Cell error[81];
-        return error;
-    }
-    */
-
-    int i,j;
-    list<Cell> error;
-    for(i=0; i< 9; i++)
-    {
-        for(j=0;j,9;j++)
         {
-            //Revisa si el valor de matriz[i][j] está repetido en la columna
-            list<Cell> auxC = checkCol(matriz[i][j]);
-            if(!auxC.empty())
-                mergeLists(error,auxC);
-            //Revisa si el valor de matriz[i][j] está repetido en la fila
-            list<Cell> auxF = checkRow(matriz[i][j]);
-            if(!auxF.empty())
-                mergeLists(error,auxF);
-            //Revisa si el valor de matriz[i][j] está repetido en la submatriz
+            reales.push_back(matriz[i][j]);
         }
     }
+    return imaginarios;
 }
 
-void mergeLists(list<Cell> a, list<Cell> b)
+//Implementado CheckAll, chequea todas las listas
+list<Cell> checkAll ()
 {
-    int i;
-    for(i = 0; i < b.size(); i++)
+    list<Cell> erroneos ;
+    erroneos.clear();
+    for (int i = 0; i < 9; i++)
     {
-        a.push_back(b.pop_back());
+        for(int j = 0; j< 9; j++)
+        {
+            list<Cell> auxR = checkRow(matriz[i][j]);
+            list<Cell> auxC = checkCol(matriz[i][j]);
+            if( ! auxR.is_empty())
+                merge(erroneos,auxR);
+            if( !auxC.is_empty())
+                merge(erroneos,auxC);
+        }
+    }
+    return erroneos;
+}
+
+bool inList(list<Cell> a, Cell b )
+{
+    if(a.is_empty())
+        return false;
+
+    for(int i = 0; i < a.size(); i++)
+        if(a[i]->getValue() == b->getValue())
+            return true;
+    return false;
+}
+
+list<Cell> merge(list<Cell> A, list<Cell> B)
+{
+    int flag = 0;
+    for(int i = 0; i< B.size(); i++)
+    {
+        for(int j = 0; j < A.size(); j++)
+        {
+            if(!(A[i]->getX() == B[j]-> getX() && A[i]->getY() == B[j]-> getY() && A[i]-> getValue() == B[j]->getValue()))
+                A.push_back(B[j]);
+        }
     }
 }
 
