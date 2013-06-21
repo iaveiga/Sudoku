@@ -20,17 +20,17 @@ int Cell::getValue() const
     return value;
 }
 
-void Cell::setX(x) const
+void Cell::setX(int x)
 {
     this-> x = x;
 }
 
-void Cell::setY(y) const
+void Cell::setY(int y)
 {
     this-> y = y;
 }
 
-void Cell::setValue(value) const
+void Cell::setValue(int value)
 {
     this-> value = value;
 }
