@@ -5,7 +5,7 @@ Cell::Cell()
 
 }
 
-int Cell::getX() const
+int Cell::getX()
 {
     return x;
 }
@@ -35,14 +35,3 @@ void Cell::setValue(value) const
     this-> value = value;
 }
 
-/*
-list<int> Cell::setPosibleValue(value) conts
-{
-
-}
-*/
-
-void Cell::setPosibleValue(value) conts
-{
-
-}

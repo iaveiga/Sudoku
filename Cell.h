@@ -13,14 +13,14 @@ public:
     Cell();
 
     //getters
-    int getX();
-    int getY();
-    int getValue();
+    int getX() const;
+    int getY() const ;
+    int getValue() const;
 
     //setters
-    void setX(int x);
-    void setY(int y);
-    void setValue(int value);
+    void setX(const int x);
+    void setY(const int y);
+    void setValue(const int value);
 
 };
 
