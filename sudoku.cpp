@@ -196,8 +196,8 @@ Cell getCenter(Cell c)
 
             if( distance(matriz[i][j],c) < min)
             {
-                answer->setX = i;
-                answer->setY = j;
+                answer.setX = i;
+                answer.setY = j;
              }
         }
     }
