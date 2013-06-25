@@ -7,34 +7,47 @@ using namespace std;
 //Constructor
 Sudoku::Sudoku()
 {
-    for(int i = 0; i <9 ; i++)
+    for(int i = 0; i < 9; i++)
     {
-        for(int j = 0; j <9 ; j++)
+        for(int j = 0; j < 9; j++)
         {
-            matriz[i][j].setValue(-1);
-            matriz[i][j].setX(i);
-            matriz[i][j].setY(j);
+            Cell aux = Cell(i,j,-1);
+            setCell(i,j,aux);
         }
     }
+}
+
+//Obtiene la ij celda
+Cell Sudoku::getCell(int i, int j)
+{
+    return matriz[i][j];
+}
+
+//Almacena la celda en la posicioón ij
+void Sudoku::setCell(int i, int j, Cell c)
+{
+    matriz[i][j] = c;
 }
 
 //Carga un sudoku resuelto correctamente desde un archivo de texto para revisarlo con el método checkAll
-void Sudoku:: loadSudoku()
+void Sudoku::loadSudoku()
 {
     ifstream archivo;
-    archivo.open("/sudoku.txt",ios::in);
-    int i,j;
-    int aux;
-    for(i = 0; i< 9; i++)
+    archivo.open("C:/sudoku.txt",ios::in);
+    int i,j,aux;
+    for(i = 0; i < 9; i++)
     {
-        for(j=0; j<9 ; j++)
+        for(j = 0; j < 9; j++)
         {
-            archivo>> aux;
-            matriz[i][j].setValue(aux) ;
+            archivo >> aux;
+            Cell caux = Cell(i,j,aux);
+            setCell(i,j,caux);
         }
     }
 }
 
+
+/*métodos erróneos asociados a listas
 //Retorna una lista de celdas erroneas, si el valor de c existe más de una vez en la fila
 list<Cell> checkR(Cell a)
 {
@@ -54,6 +67,7 @@ list<Cell> checkR(Cell a)
     }
     return imaginarios;
 }
+
 
 //Retorna una lista de celdas erroneas, si el valor de c existe más de una vez en la columna
 list<Cell> checkC(Cell a)
@@ -160,46 +174,46 @@ void mergeLists(list<Cell> A, list<Cell> B)
         }
     }
 }
+*/
 
-void initializeCenters()
+
+void Sudoku::initializeCenters()
 {
-    Cell c;
-    c->setX = 1; c->setY = 1; c->setValue = -1; centros[0] = c;
-    c->setX = 1; c->setY = 4; c->setValue = -1; centros[1] = c;
-    c->setX = 1; c->setY = 7; c->setValue = -1; centros[2] = c;
-    c->setX = 4; c->setY = 1; c->setValue = -1; centros[3] = c;
-    c->setX = 4; c->setY = 4; c->setValue = -1; centros[4] = c;
-    c->setX = 4; c->setY = 7; c->setValue = -1; centros[5] = c;
-    c->setX = 7; c->setY = 1; c->setValue = -1; centros[6] = c;
-    c->setX = 7; c->setY = 4; c->setValue = -1; centros[7] = c;
-    c->setX = 7; c->setY = 7; c->setValue = -1; centros[8] = c;
+    Cell c0 = Cell(1,1,-1); centros[0] = c0;
+    Cell c1 = Cell(1,4,-1); centros[1] = c1;
+    Cell c2 = Cell(1,7,-1); centros[2] = c2;
+    Cell c3 = Cell(4,1,-1); centros[3] = c3;
+    Cell c4 = Cell(4,4,-1); centros[4] = c4;
+    Cell c5 = Cell(4,7,-1); centros[5] = c5;
+    Cell c6 = Cell(7,1,-1); centros[6] = c6;
+    Cell c7 = Cell(7,4,-1); centros[7] = c7;
+    Cell c8 = Cell(7,7,-1); centros[8] = c8;
 }
 
 //Calcula la distancia entre dos celdas
-double distance(Cell c, Cell d)
+double Sudoku::distance(Cell c, Cell d)
 {
     double answer = 0.0;
-    answer = sqrt( pow((d->getX - c->getX),2.0) + pow((d->getY - c->getY),2.0));
+    answer = sqrt( pow((c.getX() - d.getX()),2.0) + pow((c.getY() - d.getY()),2.0));
     return answer;
 }
 
-Cell getCenter(Cell c)
+//Devuelve las coordenadas x,y del centro de la submatriz a la que pertenece c
+Cell Sudoku::getCenter(Cell c)
 {
-   // minimum = distance(matriz[1][1],c);
-    double min = 100.0;
-    Cell answer() ;
-
-    for(int i = 1; i <= 7 ; i+3)
-    {
-        for(int j = 1; j<=7; j+3)
+    Cell answer = Cell(-1,-1,100);
+    double min = 100.0, d;
+    for(int i = 1; i <= 7 ; i = i+3)
         {
-
-            if( distance(matriz[i][j],c) < min)
+            for(int j = 1; j<=7; j = j+3)
             {
-                answer.setX = i;
-                answer.setY = j;
-             }
-        }
+                d = distance(getCell(i,j),c);
+                if( d < min)
+                {
+                    answer.setX(i); answer.setY(j);
+                    min = d;
+                }
+            }
     }
     return answer;
 }

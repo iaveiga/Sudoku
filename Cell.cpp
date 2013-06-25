@@ -2,10 +2,19 @@
 
 Cell::Cell()
 {
-
+    x = 0;
+    y = 0;
+    value = -1;
 }
 
-int Cell::getX()
+Cell::Cell(int x, int y, int value)
+{
+    this -> x = x;
+    this -> y = y;
+    this -> value = value;
+}
+
+int Cell::getX() const
 {
     return x;
 }

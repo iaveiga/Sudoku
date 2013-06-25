@@ -1,36 +1,39 @@
 #ifndef SUDOKU_H
 #define SUDOKU_H
 #include "Cell.h"
-
-using namespace std;
+#include <list>
 
 class Sudoku
 {
+    private:
+        Cell centros[9];
+        Cell matriz[9][9];
 
-private:
-    Sudoku();
+    public:
 
-    Cell centros[9];
-public:
+        //Constructor
+        Sudoku();
 
-    Cell matriz[9][9];
+        void loadSudoku();
 
-    //Retorna verdadero si el valor de c existe más de una vez en la fila
-    list<Cell> checkCol(Cell c);
+        Cell getCenter(Cell c);
 
-    list<Cell> checkRow(Cell c);
+        void initializeCenters();
 
-    //Parcialmente implementado
-    list<Cell> checkAll();
+        Cell getCell(int i, int j);
 
-    //Carga un sudoku resuelto correctamente desde un archivo de texto para revisarlo con el método checkAll
-    void loadSudoku();
+        void setCell(int i, int j, Cell c);
 
-    Cell getCenter(Cell c);
+        double distance(Cell c, Cell d);
 
-    void initializeCenters();
+        /*
+        void mergeLists(list<Cell> A, list<Cell> B);
 
-    void mergeLists (list<Cell> A, list<Cell> B);
+        list<Cell> checkCol(Cell c);
+
+        list<Cell> checkRow(Cell c);
+
+        list<Cell> checkAll(Cell c);
+        */
 };
-
 #endif // SUDOKU_H
