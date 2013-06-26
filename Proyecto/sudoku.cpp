@@ -19,18 +19,32 @@ Sudoku::Sudoku()
 
 //Obtiene la ij celda
 Cell Sudoku::getCell(int i, int j)
+/*!
+  *@brief Ingresa la posicion y devuelve la celda
+  *@param i posicion de la celda en x(columnas)
+  *@param j posicion de la celda en y(filas)
+  *@return retorna la celda de la matriz
+*/
 {
     return matriz[i][j];
 }
 
 //Almacena la celda en la posicioón ij
 void Sudoku::setCell(int i, int j, Cell c)
+/*!
+  *@brief Ingresa la posicion y cambia el valor a la celda
+  *@param i posicion de la celda en x(columnas)
+  *@param j posicion de la celda en y(filas)
+*/
 {
     matriz[i][j] = c;
 }
 
 //Carga un sudoku resuelto correctamente desde un archivo de texto para revisarlo con el método checkAll
 void Sudoku::loadSudoku()
+/*!
+  *@brief Carga un tablero desde un archivo de texto plano
+*/
 {
     ifstream archivo;
     archivo.open("C:/sudoku.txt",ios::in);
@@ -178,6 +192,10 @@ void mergeLists(list<Cell> A, list<Cell> B)
 
 
 void Sudoku::initializeCenters()
+/*!
+  *@brief Inicializa los centros, centro se le denomina a la celda que se ubica en el centro de las demas celdas
+  *@return retorna celdas de centros inicializados
+*/
 {
     Cell c0 = Cell(1,1,-1); centros[0] = c0;
     Cell c1 = Cell(1,4,-1); centros[1] = c1;
@@ -192,6 +210,12 @@ void Sudoku::initializeCenters()
 
 //Calcula la distancia entre dos celdas
 double Sudoku::distance(Cell c, Cell d)
+/*!
+  *@brief Calcula la distancia que hay de una celda a otra
+  *@param c celda inicial
+  *@param d celda final o celda de destino
+  *@return distancia de una celda a otra
+*/
 {
     double answer = 0.0;
     answer = sqrt( pow((c.getX() - d.getX()),2.0) + pow((c.getY() - d.getY()),2.0));
@@ -200,6 +224,11 @@ double Sudoku::distance(Cell c, Cell d)
 
 //Devuelve las coordenadas x,y del centro de la submatriz a la que pertenece c
 Cell Sudoku::getCenter(Cell c)
+/*!
+  *@brief obtiene la celda central de la celda C que es ingresada
+  *@param c Celda a calcular su centro
+  *@return retorna celda central.
+*/
 {
     Cell answer = Cell(-1,-1,100);
     double min = 100.0, d;
