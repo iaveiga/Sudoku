@@ -1,4 +1,4 @@
-#include "sudokugui.h"
+/*#include "sudokugui.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -9,3 +9,4 @@ int main(int argc, char *argv[])
     
     return a.exec();
 }
+*/

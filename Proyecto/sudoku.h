@@ -3,11 +3,13 @@
 #include "Cell.h"
 #include <list>
 
+using namespace std;
+
 class Sudoku
 {
     private:
-        Cell centros[9];
-        Cell matriz[9][9];
+        static Cell centros[9];
+        static Cell matriz[9][9];
 
     public:
 
@@ -16,24 +18,27 @@ class Sudoku
 
         void loadSudoku();
 
-        Cell getCenter(Cell c);
+        static Cell getCenter(Cell c);
 
-        void initializeCenters();
+        static void initializeCenters();
 
-        Cell getCell(int i, int j);
+        static Cell getCell(int i, int j);
 
-        void setCell(int i, int j, Cell c);
+        static void setCell(int i, int j, Cell c);
 
-        double distance(Cell c, Cell d);
+        static double distance(Cell c, Cell d);
 
-        /*
-        void mergeLists(list<Cell> A, list<Cell> B);
+        static void mergeLists(list<Cell> A, list<Cell> B);
+
+        static bool inList(list<Cell> a, Cell b );
+
+        static void isValid();
 
         list<Cell> checkCol(Cell c);
 
         list<Cell> checkRow(Cell c);
 
         list<Cell> checkAll(Cell c);
-        */
+
 };
 #endif // SUDOKU_H

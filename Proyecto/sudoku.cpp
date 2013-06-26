@@ -1,8 +1,7 @@
 #include "sudoku.h"
-#include <fstream.h>
+#include <fstream>
 #include <list>
 #include <math.h>
-using namespace std;
 
 //Constructor
 Sudoku::Sudoku()
@@ -26,7 +25,7 @@ Cell Sudoku::getCell(int i, int j)
   *@return retorna la celda de la matriz
 */
 {
-    return matriz[i][j];
+    return (Cell) Sudoku::matriz[i][j];
 }
 
 //Almacena la celda en la posicioón ij
@@ -40,11 +39,14 @@ void Sudoku::setCell(int i, int j, Cell c)
     matriz[i][j] = c;
 }
 
+
+
 //Carga un sudoku resuelto correctamente desde un archivo de texto para revisarlo con el método checkAll
-void Sudoku::loadSudoku()
+//void Sudoku::loadSudoku()
 /*!
   *@brief Carga un tablero desde un archivo de texto plano
 */
+/*
 {
     ifstream archivo;
     archivo.open("C:/sudoku.txt",ios::in);
@@ -59,31 +61,9 @@ void Sudoku::loadSudoku()
         }
     }
 }
+*/
 
 
-/*métodos erróneos asociados a listas
-//Retorna una lista de celdas erroneas, si el valor de c existe más de una vez en la fila
-list<Cell> checkR(Cell a)
-{
-    list<Cell> reales;
-    list<Cell> imaginarios;
-    int i = a.getX();
-    for(int j = 0; j < 9; j++)
-    {
-        if(inList(reales,matriz[i][j]))
-        {
-            imaginarios.push_back(matriz[i][j]);
-        }
-        else
-        {
-            reales.push_back(matriz[i][j]);
-        }
-    }
-    return imaginarios;
-}
-
-
-//Retorna una lista de celdas erroneas, si el valor de c existe más de una vez en la columna
 list<Cell> checkC(Cell a)
 {
     list<Cell> reales;
@@ -91,23 +71,25 @@ list<Cell> checkC(Cell a)
     int j = a.getY();
     for(int i = 0; i < 9; i++)
     {
-        if(inList(reales, matriz[i][j]))
+        if(Sudoku::inList(reales, Sudoku::getCell(i,j) ))
         {
-            imaginarios.push_back( Sudoku::matriz[i][j]);
+            Cell aux = Cell();
+            aux = Sudoku::getCell(i,j);
+            imaginarios.push_back(aux);
         }
         else
-        {
-            reales.push_back(Sudoku::matriz[i][j]);
-        }
+            reales.push_back(Sudoku::getCell(i,j));
     }
     return imaginarios;
 }
 
+
+/*
 list<Cell> checkSubmatriz(Cell a)
 {
     list<Cell> reales;
     list<Cell> imaginarios;
-    Cell center = getCenter(a);
+    Cell center = Sudoku::getCenter(a);
     int i = center.getX();
     int j = center.getY();
     for( i-1; i+1; i++)
@@ -151,45 +133,53 @@ list<Cell> checkAll ()
     }
     return erroneos;
 }
-
-void isValid()
+*/
+/*
+void Sudoku::isValid()
 {
-
+    int j;
     list<Cell> valid;
     valid = checkAll();
     if (! valid.empty()) //Diferente de vacío
-        cout << "Es un sudoku valido";
+        j = 0;
     else
-        cout << "Es un sudoku no valido";
+        j = 1;
 
 }
+*/
 
-
-bool inList(list<Cell> a, Cell b )
+bool Sudoku::inList(list<Cell> a, Cell b )
 {
-    if(a.is_empty())
+
+    if(a.empty())
         return false;
 
-    for(int i = 0; i < a.size(); i++)
-        if(a[i]->getValue() == b->getValue())
+    std::list<Cell>::const_iterator iterator;
+    for(iterator = a.begin(); iterator != a.end(); ++iterator)
+    {
+        Cell aux = a.front();
+        if(aux.getValue() == b.getValue())
             return true;
+    }
     return false;
 }
 
-void mergeLists(list<Cell> A, list<Cell> B)
+
+/*
+void Sudoku::mergeLists(list<Cell> A, list<Cell> B)
 {
     int flag = 0;
     for(int i = 0; i< B.size(); i++)
     {
         for(int j = 0; j < A.size(); j++)
         {
-            if(!(A[i]->getX() == B[j]-> getX() && A[i]->getY() == B[j]-> getY() && A[i]-> getValue() == B[j]->getValue()))
+            if(!(A[i].getX() == B[j].getX() && A[i].getY() == B[j].getY() && A[i].getValue() == B[j].getValue()))
                 A.push_back(B[j]);
         }
     }
 }
-*/
 
+*/
 
 void Sudoku::initializeCenters()
 /*!
