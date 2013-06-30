@@ -8,8 +8,8 @@ using namespace std;
 class Sudoku
 {
     private:
-        static Cell centros[9];
-        static Cell matriz[9][9];
+        Cell centros[9];
+        Cell matriz[9][9];
 
     public:
 
@@ -18,21 +18,21 @@ class Sudoku
 
         void loadSudoku();
 
-        static Cell getCenter(Cell c);
+        Cell getCenter(Cell c);
 
-        static void initializeCenters();
+        void initializeCenters();
 
-        static Cell getCell(int i, int j);
+        Cell getCell(int i, int j);
 
-        static void setCell(int i, int j, Cell c);
+        void setCell(int i, int j, Cell c);
 
-        static double distance(Cell c, Cell d);
+        double distance(Cell c, Cell d);
 
-        static void mergeLists(list<Cell> A, list<Cell> B);
+        void mergeLists(list<Cell> A, list<Cell> B);
 
-        static bool inList(list<Cell> a, Cell b );
+        bool inList(list<Cell> a, Cell b );
 
-        static void isValid();
+        void isValid();
 
         list<Cell> checkCol(Cell c);
 

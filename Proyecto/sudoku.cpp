@@ -25,7 +25,7 @@ Cell Sudoku::getCell(int i, int j)
   *@return retorna la celda de la matriz
 */
 {
-    return (Cell) Sudoku::matriz[i][j];
+    return  this->matriz[i][j];
 }
 
 //Almacena la celda en la posicioón ij
@@ -36,7 +36,7 @@ void Sudoku::setCell(int i, int j, Cell c)
   *@param j posicion de la celda en y(filas)
 */
 {
-    matriz[i][j] = c;
+    this->matriz[i][j] = c;
 }
 
 
@@ -71,14 +71,11 @@ list<Cell> checkC(Cell a)
     int j = a.getY();
     for(int i = 0; i < 9; i++)
     {
-        if(Sudoku::inList(reales, Sudoku::getCell(i,j) ))
-        {
-            Cell aux = Cell();
-            aux = Sudoku::getCell(i,j);
-            imaginarios.push_back(aux);
-        }
+        Cell aux1 = Sudoku::getCell(i,j);
+        if(Sudoku::inList(reales, aux1))
+            imaginarios.push_back(aux1);
         else
-            reales.push_back(Sudoku::getCell(i,j));
+            reales.push_back(aux1);
     }
     return imaginarios;
 }
