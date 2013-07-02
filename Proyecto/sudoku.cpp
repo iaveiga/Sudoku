@@ -64,15 +64,15 @@ void Sudoku::setCell(int i, int j, Cell c)
 */
 
 
-list<Cell> checkC(Cell a)
+list<Cell> checkC(Cell a, Sudoku s)
 {
     list<Cell> reales;
     list<Cell> imaginarios;
     int j = a.getY();
     for(int i = 0; i < 9; i++)
     {
-        Cell aux1 = Sudoku::getCell(i,j);
-        if(Sudoku::inList(reales, aux1))
+        Cell aux1 = s.getCell(i,j);
+        if(s.inList(reales, aux1))
             imaginarios.push_back(aux1);
         else
             reales.push_back(aux1);
