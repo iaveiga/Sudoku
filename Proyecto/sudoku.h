@@ -16,29 +16,30 @@ class Sudoku
         //Constructor
         Sudoku();
 
-        void loadSudoku();
+		void setCell(int i, int j, Cell c);
 
-        Cell getCenter(Cell c);
+		Cell getCell(int i,int j);
 
-        void initializeCenters();
+		double distance(Cell c, Cell d);
 
-        Cell getCell(int i, int j);
+		void loadSudoku();
 
-        void setCell(int i, int j, Cell c);
+		Cell getCenter(Cell c);
 
-        double distance(Cell c, Cell d);
+		void initializeCenters();
 
-        void mergeLists(list<Cell> A, list<Cell> B);
+		list<Cell> checkCol(Cell c);
 
-        bool inList(list<Cell> a, Cell b );
+		list<Cell> checkRow(Cell c);
 
-        void isValid();
+		bool inList(list<Cell> a, Cell b );
 
-        list<Cell> checkCol(Cell c);
+		list<Cell> mergeLists(list<Cell> A, list<Cell> B);
 
-        list<Cell> checkRow(Cell c);
+		list<Cell> checkSubmatrix(Cell c);
+		
+		list<Cell> checkAll();
 
-        list<Cell> checkAll(Cell c);
-
+		bool isValid();
 };
 #endif // SUDOKU_H

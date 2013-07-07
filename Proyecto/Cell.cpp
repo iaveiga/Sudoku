@@ -2,7 +2,7 @@
 
 Cell::Cell()
 /*!
-  *@brief Clase constructora de una celda que no recibe parametros.
+*@brief Clase constructora de una celda que no recibe parametros.
 */
 {
     x = 0;
@@ -12,7 +12,7 @@ Cell::Cell()
 
 Cell::Cell(int x, int y, int value)
 /*!
-  *@brief Constructor de la celda que recibe parametros
+*@brief Constructor de la celda que recibe parametros
 */
 {
     this -> x = x;
@@ -22,8 +22,8 @@ Cell::Cell(int x, int y, int value)
 
 int Cell::getX() const
 /*!
-  *@brief Obtiene la posicion de la fila de la celda
-  *@return devuelve el numero de la posicion de celda en X
+*@brief Obtiene la posicion de la fila de la celda
+*@return devuelve el numero de la posicion de celda en X
 */
 {
     return x;
@@ -32,8 +32,8 @@ int Cell::getX() const
 int Cell::getY() const
 
 /*!
-  *@brief Obtiene la posicion de la Columna de la celda
-  *@return devuelve el numero de la posicion de celda en Y
+*@brief Obtiene la posicion de la Columna de la celda
+*@return devuelve el numero de la posicion de celda en Y
 */
 {
     return y;
@@ -42,8 +42,8 @@ int Cell::getY() const
 int Cell::getValue() const
 
 /*!
-  *@brief Obtiene el valor de la fila de la celda
-  *@return devuelve el numero del valor que tiene de celda
+*@brief Obtiene el valor de la fila de la celda
+*@return devuelve el numero del valor que tiene de celda
 */
 {
     return value;
@@ -51,7 +51,7 @@ int Cell::getValue() const
 
 void Cell::setX(int x)
 /*!
-  *@brief Setea la posicion de la fila de la celda
+*@brief Setea la posicion de la fila de la celda
 */
 {
     this-> x = x;
@@ -59,7 +59,7 @@ void Cell::setX(int x)
 
 void Cell::setY(int y)
 /*!
-  *@brief Setea la posicion de la columna de la celda
+*@brief Setea la posicion de la columna de la celda
 */
 {
     this-> y = y;
@@ -67,9 +67,8 @@ void Cell::setY(int y)
 
 void Cell::setValue(int value)
 /*!
-  *@brief Setea el valor de la celda
+*@brief Setea el valor de la celda
 */
 {
     this-> value = value;
 }
-
