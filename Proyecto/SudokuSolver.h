@@ -12,7 +12,7 @@ class SudokuSolver
 
 	public:
 		SudokuSolver();
-		bool solve(Sudoku s);
+		bool solve(Sudoku s, Cell c);
 		
 		bool findUnassignedLocation(Sudoku s, Cell c);
 		bool isSafe(Sudoku s, Cell c);
@@ -20,6 +20,7 @@ class SudokuSolver
 		bool usedInCol(Sudoku s, Cell c);
 		bool usedInBox(Sudoku s, Cell c);
 		Sudoku getBoard();
+		void setBoard(Sudoku s);
 		/* 
 		//bool findUnassignedLocation(Sudoku s, int row, int col);
 		//bool isSafe(Sudoku s, int row, int col, int num);
