@@ -12,7 +12,7 @@ TARGET = Sudoku
 TEMPLATE = app
 
 
-SOURCES += main.cpp\
+SOURCES +=\
     ../Cell.cpp \
     ../sudoku.cpp
 
