@@ -1,0 +1,14 @@
+INPUT(
+./debug\main.o
+./debug\sudoku.o
+./debug\tablero.o
+./debug\sudok.o
+./debug\cell.o
+./debug\inicio.o
+./debug\Tablet.o
+./debug\moc_sudoku.o
+./debug\moc_sudok.o
+./debug\moc_cell.o
+./debug\moc_inicio.o
+./debug\moc_tablet.o
+);

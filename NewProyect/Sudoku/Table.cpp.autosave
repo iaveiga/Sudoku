@@ -1,0 +1,24 @@
+#include "table.h"
+#include "cell.h"
+
+#include <QGridLayout>
+#include <QTextEdit>
+
+table::table(QWidget *parent):
+    QWidget(parent, Qt::Popup),
+    CeldasSeleccionadas(NULL)
+{
+    setFixedHeight(200);
+    setFixedWidth(200);
+
+    tablet = new QGridLayout(this);
+    tablet->setSpacing(1);
+    for(int i=1;i<=10;i++){
+        number[i] = new QTextEdit()
+                
+        tablet->addWidget();    
+    }
+    
+
+
+}
