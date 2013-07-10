@@ -1,14 +1,14 @@
 INPUT(
 ./release\main.o
-./release\sudoku.o
 ./release\tablero.o
 ./release\sudok.o
 ./release\cell.o
 ./release\inicio.o
 ./release\Tablet.o
-./release\moc_sudoku.o
+./release\sudoku_ui.o
 ./release\moc_sudok.o
 ./release\moc_cell.o
 ./release\moc_inicio.o
 ./release\moc_tablet.o
+./release\moc_sudoku_ui.o
 );

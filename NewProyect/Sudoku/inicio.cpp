@@ -1,6 +1,6 @@
 #include "inicio.h"
 #include "ui_inicio.h"
-#include "sudoku.h"
+#include "sudoku_ui.h"
 
 Inicio::Inicio(QWidget *parent) :
     QDialog(parent),
@@ -12,8 +12,8 @@ Inicio::Inicio(QWidget *parent) :
 
 void jugar_clicked()
 {
-    Sudoku *su;//Esto hace referencia a la ventana Sudoku para empezar a jugar
-    su = new Sudoku();
+    Sudoku_ui *su;//Esto hace referencia a la ventana Sudoku para empezar a jugar
+    su = new Sudoku_ui();
     bool isnotCheck = Ui_Inicio.rbt_intermedio->isChecked() | Ui_Inicio->rbt_intermedio->isChecked() | Ui_Inicio->rbt_facil->isChecked();
           if(isnotCheck == false){
               this->setVisible(false);
