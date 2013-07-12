@@ -1,0 +1,125 @@
+\hypertarget{class_main_window}{\section{Main\-Window Class Reference}
+\label{class_main_window}\index{Main\-Window@{Main\-Window}}
+}
+Inheritance diagram for Main\-Window\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_window}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{Main\-Window} (Q\-Widget $\ast$parent=0)
+\item 
+\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\-Main\-Window} ()
+\item 
+void \hyperlink{class_main_window_a6f7ff976be1a9adfa19b23867f9c6d41}{load\-L\-E} (int dificultad, Q\-String nombre)
+\item 
+void \hyperlink{class_main_window_ab98df46367b9911377d5a85a293ae45f}{Comienza\-Cronometro} ()
+\item 
+void \hyperlink{class_main_window_a60f775aea4d2d76a37034f9659da20ff}{pintar} (list$<$ \hyperlink{class_cell}{Cell} $>$ e)
+\item 
+void \hyperlink{class_main_window_a4bba8622e7fca1f85bbb18e1eee37d71}{pintar\-Cell} (int x, int y, Q\-Color c)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_main_window_a3584521b6f79321999e1c1613d5deedb}{\hyperlink{class_sudoku}{Sudoku} {\bfseries tablero}}\label{class_main_window_a3584521b6f79321999e1c1613d5deedb}
+
+\item 
+\hypertarget{class_main_window_ab06c0abc0234fe04c3d6720dd4bd71c2}{\hyperlink{class_sudoku}{Sudoku} {\bfseries juego}}\label{class_main_window_ab06c0abc0234fe04c3d6720dd4bd71c2}
+
+\item 
+\hypertarget{class_main_window_a5f9f0c071c52ca968564c2dc0210cf32}{\hyperlink{class_sudoku_generator}{Sudoku\-Generator} {\bfseries generator}}\label{class_main_window_a5f9f0c071c52ca968564c2dc0210cf32}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{\index{Main\-Window@{Main\-Window}!Main\-Window@{Main\-Window}}
+\index{Main\-Window@{Main\-Window}!MainWindow@{Main\-Window}}
+\subsubsection[{Main\-Window}]{\setlength{\rightskip}{0pt plus 5cm}Main\-Window\-::\-Main\-Window (
+\begin{DoxyParamCaption}
+\item[{Q\-Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}}\label{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}
+constructor de la clase mainwindow \begin{DoxyAuthor}{Author}
+Kevin Campuzano, Iván Aveiga
+\end{DoxyAuthor}
+\hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{\index{Main\-Window@{Main\-Window}!$\sim$\-Main\-Window@{$\sim$\-Main\-Window}}
+\index{$\sim$\-Main\-Window@{$\sim$\-Main\-Window}!MainWindow@{Main\-Window}}
+\subsubsection[{$\sim$\-Main\-Window}]{\setlength{\rightskip}{0pt plus 5cm}Main\-Window\-::$\sim$\-Main\-Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}
+Destructor de la clase mainwindow \begin{DoxyAuthor}{Author}
+Qt
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_main_window_ab98df46367b9911377d5a85a293ae45f}{\index{Main\-Window@{Main\-Window}!Comienza\-Cronometro@{Comienza\-Cronometro}}
+\index{Comienza\-Cronometro@{Comienza\-Cronometro}!MainWindow@{Main\-Window}}
+\subsubsection[{Comienza\-Cronometro}]{\setlength{\rightskip}{0pt plus 5cm}void Main\-Window\-::\-Comienza\-Cronometro (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_main_window_ab98df46367b9911377d5a85a293ae45f}
+inicia el cronómetro desde que es llamado el formulario mainwindow \begin{DoxyAuthor}{Author}
+Kevin Campuzano
+\end{DoxyAuthor}
+\hypertarget{class_main_window_a6f7ff976be1a9adfa19b23867f9c6d41}{\index{Main\-Window@{Main\-Window}!load\-L\-E@{load\-L\-E}}
+\index{load\-L\-E@{load\-L\-E}!MainWindow@{Main\-Window}}
+\subsubsection[{load\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}void Main\-Window\-::load\-L\-E (
+\begin{DoxyParamCaption}
+\item[{int}]{dificultad, }
+\item[{Q\-String}]{nombre}
+\end{DoxyParamCaption}
+)}}\label{class_main_window_a6f7ff976be1a9adfa19b23867f9c6d41}
+carga en la interfaz el tablero a jugar con las celdas y el nombre del jugador. 
+\begin{DoxyParams}{Parameters}
+{\em dificultad,dificultad} & a jugar.  nombre, nombre del jugador. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Iván Aveiga
+\end{DoxyAuthor}
+\hypertarget{class_main_window_a60f775aea4d2d76a37034f9659da20ff}{\index{Main\-Window@{Main\-Window}!pintar@{pintar}}
+\index{pintar@{pintar}!MainWindow@{Main\-Window}}
+\subsubsection[{pintar}]{\setlength{\rightskip}{0pt plus 5cm}void Main\-Window\-::pintar (
+\begin{DoxyParamCaption}
+\item[{list$<$ {\bf Cell} $>$}]{e}
+\end{DoxyParamCaption}
+)}}\label{class_main_window_a60f775aea4d2d76a37034f9659da20ff}
+Pinta las celdas erróneas 
+\begin{DoxyParams}{Parameters}
+{\em e} & lista de celdas erróneas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyAuthor}{Author}
+Ivan Aveiga
+\end{DoxyAuthor}
+\hypertarget{class_main_window_a4bba8622e7fca1f85bbb18e1eee37d71}{\index{Main\-Window@{Main\-Window}!pintar\-Cell@{pintar\-Cell}}
+\index{pintar\-Cell@{pintar\-Cell}!MainWindow@{Main\-Window}}
+\subsubsection[{pintar\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}void Main\-Window\-::pintar\-Cell (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{Q\-Color}]{c}
+\end{DoxyParamCaption}
+)}}\label{class_main_window_a4bba8622e7fca1f85bbb18e1eee37d71}
+Pinta una celda de color 
+\begin{DoxyParams}{Parameters}
+{\em x} & coordenada en x de la celda \\
+\hline
+{\em y} & coordenada en y de la celda  color ha ser pintado.\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+C\-:/\-Users/\-Janet/\-Documents/\-Git\-Hub/\-Final/\-Sudoku/mainwindow.\-h\item 
+C\-:/\-Users/\-Janet/\-Documents/\-Git\-Hub/\-Final/\-Sudoku/mainwindow.\-cpp\end{DoxyCompactItemize}

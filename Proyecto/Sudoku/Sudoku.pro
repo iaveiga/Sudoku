@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2013-06-03T21:04:26
+# Project created by QtCreator 2013-07-11T10:20:05
 #
 #-------------------------------------------------
 
@@ -12,12 +12,18 @@ TARGET = Sudoku
 TEMPLATE = app
 
 
-SOURCES +=\
-    ../Cell.cpp \
-    ../sudoku.cpp
+SOURCES += main.cpp\
+        mainwindow.cpp \
+    cell.cpp \
+    sudoku.cpp \
+    sudokugenerator.cpp \
+    inicio.cpp
 
-HEADERS  += \
-    ../Cell.h \
-    ../sudoku.h
+HEADERS  += mainwindow.h \
+    cell.h \
+    sudoku.h \
+    sudokugenerator.h \
+    inicio.h
 
-FORMS    +=
+FORMS    += mainwindow.ui \
+    inicio.ui

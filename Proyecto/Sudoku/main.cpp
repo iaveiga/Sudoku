@@ -1,12 +1,14 @@
-/*#include "sudokugui.h"
+//#include "mainwindow.h"
 #include <QApplication>
-
+#include "inicio.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    SudokuGUI w;
-    w.show();
+    //MainWindow w;
+    Inicio h;
+    h.show();
+    //w.show();
+
     
     return a.exec();
 }
-*/
