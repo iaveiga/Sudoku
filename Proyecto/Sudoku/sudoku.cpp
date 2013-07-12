@@ -79,12 +79,6 @@ using namespace std;
         strcpy(c[1],"/s2.txt");
         strcpy(c[2],"/s3.txt");
         strcpy(c[3],"/s4.txt");
-        /*
-        strcpy(c[0],"C:/s1.txt");
-        strcpy(c[1],"C:/s2.txt");
-        strcpy(c[2],"C:/s3.txt");
-        strcpy(c[3],"C:/s4.txt");
-        */
         int num = rand()%4;
 
         archivo.open(c[num],ios::in);
